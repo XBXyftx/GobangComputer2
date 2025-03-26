@@ -55,6 +55,7 @@ public class AlphaBetaPruning {
                             bestMove = new Move(row, col);
                         }
                         alpha = Math.max(alpha, eval);
+                        //当前节点的beta值小于alpha值时，剪枝
                         if (beta <= alpha) {
                             break; // Alpha-Beta剪枝
                         }
