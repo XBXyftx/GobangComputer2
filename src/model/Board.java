@@ -35,7 +35,7 @@ public class Board {
     /**
      * 初始化棋盘，所有位置设为空位（null）
      */
-    private void initializeBoard() {
+    public void initializeBoard() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 board[i][j] = null;
