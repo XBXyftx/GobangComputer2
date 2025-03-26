@@ -10,7 +10,6 @@ import java.awt.*;
  */
 public class GameWindow extends JFrame {
     private final ChessBoardView chessBoardView;
-    private final ButtonPanel buttonPanel;
 
     /**
      * 构造方法，初始化游戏窗口
@@ -24,12 +23,10 @@ public class GameWindow extends JFrame {
         GameController gameController = new GameController();
 
         chessBoardView = new ChessBoardView(gameController);
-        buttonPanel = new ButtonPanel(gameController);
 
         // 使用 BorderLayout 布局管理器
         setLayout(new BorderLayout());
         add(chessBoardView, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.SOUTH);
     }
 
     /**

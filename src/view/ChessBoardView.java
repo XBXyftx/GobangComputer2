@@ -47,9 +47,9 @@ public class ChessBoardView extends JPanel {
                     repaint();
 
                     if (isGameOver) {
-                        JOptionPane.showMessageDialog(ChessBoardView.this, "玩家 " + gameController.getCurrentPlayer().opposite() + " 获胜！", "游戏结束", JOptionPane.INFORMATION_MESSAGE);
-                        gameController.resetGame();
-                        repaint();
+                        // 显示获胜者信息
+                        String winner = gameController.getCurrentPlayer().opposite().toString();
+                        JOptionPane.showMessageDialog(ChessBoardView.this, "玩家 " + winner + " 获胜！", "游戏结束", JOptionPane.INFORMATION_MESSAGE);
                     } else if (gameController.getCurrentPlayer() == Player.COMPUTER_PLAYER) {
                         // 计算机下棋逻辑
                         gameController.computerMove();
