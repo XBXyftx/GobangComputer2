@@ -10,7 +10,7 @@ public class GameEvaluator {
     private static final int[][] DIRECTIONS = {{0, 1}, {1, 1}, {1, 0}, {1, -1}};
 
     /**
-     * 评估棋盘状态的价值
+     * 评估棋盘状态的价值，还没有反向检测
      *
      * @param board 当前棋盘状态
      * @return 评估分数，正值表示人类玩家有利，负值表示计算机玩家有利
