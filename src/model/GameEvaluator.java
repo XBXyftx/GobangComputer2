@@ -7,7 +7,7 @@ import model.Board;
  * 类 GameEvaluator 负责评估棋盘的状态。
  */
 public class GameEvaluator {
-    private static final int[][] DIRECTIONS = {{0, 1}, {1, 1}, {1, 0}, {1, -1}};
+    private static final int[][] DIRECTIONS = {{0, 1}, {1, 1}, {1, 0}, {1, -1},{-1, 1}, {-1, 0}, {-1, -1}, {0, -1}};
 
     /**
      * 评估棋盘状态的价值，还没有反向检测
@@ -94,18 +94,34 @@ public class GameEvaluator {
             col -= direction[1];
         }
 
-        // 根据连珠数量和空位数计算得分
-        if (count == 5) {
-            return 1000000; // 连成五子
-        } else if (count == 4 && emptyCount >= 1) {
-            return 10000; // 四子一空
-        } else if (count == 3 && emptyCount >= 2) {
-            return 1000; // 三子两空
-        } else if (count == 2 && emptyCount >= 3) {
-            return 100; // 二子三空
-        } else if (count == 1 && emptyCount >= 4) {
-            return 10; // 一子四空
+        if (player == Player.COMPUTER_PLAYER) {
+            // 根据连珠数量和空位数计算得分
+            if (count == 5) {
+                return 1000000; // 连成五子
+            } else if (count == 4 && emptyCount >= 1) {
+                return 10000; // 四子一空
+            } else if (count == 3 && emptyCount >= 2) {
+                return 1000; // 三子两空
+            } else if (count == 2 && emptyCount >= 3) {
+                return 100; // 二子三空
+            } else if (count == 1 && emptyCount >= 4) {
+                return 10; // 一子四空
+            }
+        }else if (player == Player.HUMAN_PLAYER) {
+            // 根据连珠数量和空位数计算得分
+            if (count == 5) {
+                return 10000000; // 连成五子
+            } else if (count == 4 && emptyCount >= 1) {
+                return 100000; // 四子一空
+            } else if (count == 3 && emptyCount >= 2) {
+                return 10000; // 三子两空
+            } else if (count == 2 && emptyCount >= 3) {
+                return 1000; // 二子三空
+            } else if (count == 1 && emptyCount >= 4) {
+                return 100; // 一子四空
+            }
         }
+
 
         return 0;
     }

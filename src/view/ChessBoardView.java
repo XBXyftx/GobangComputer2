@@ -48,7 +48,7 @@ public class ChessBoardView extends JPanel {
 
                     if (isGameOver) {
                         // 显示获胜者信息
-                        String winner = gameController.getCurrentPlayer().opposite().toString();
+                        String winner = gameController.getCurrentPlayer().toString();
                         JOptionPane.showMessageDialog(ChessBoardView.this, "玩家 " + winner + " 获胜！", "游戏结束", JOptionPane.INFORMATION_MESSAGE);
                     } else if (gameController.getCurrentPlayer() == Player.COMPUTER_PLAYER) {
                         // 计算机下棋逻辑
