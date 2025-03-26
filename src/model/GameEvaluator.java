@@ -41,7 +41,7 @@ public class GameEvaluator {
                 }
             }
         }
-
+        System.out.println(String.format("%7d\t%s", score, player.toString()));
         return score;
     }
 
@@ -121,8 +121,6 @@ public class GameEvaluator {
                 return 100; // 一子四空
             }
         }
-
-
         return 0;
     }
 }

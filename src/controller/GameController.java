@@ -11,6 +11,7 @@ import model.Move;
  * 包括处理用户输入、更新棋盘状态、判断游戏结束等。
  */
 public class GameController {
+    public static final int MAX_MIN_DEPTH = 3;
     private final Board board;
     private Player currentPlayer;
     private boolean gameOver;
@@ -98,7 +99,7 @@ public class GameController {
      * 计算机下棋逻辑，使用极大极小算法和Alpha-Beta剪枝
      */
     public void computerMove() {
-        AlphaBetaPruning.MinimaxResult result = alphaBetaPruning.minimaxWithAlphaBeta(board, 3, Integer.MIN_VALUE, Integer.MAX_VALUE, true);
+        AlphaBetaPruning.MinimaxResult result = alphaBetaPruning.minimaxWithAlphaBeta(board, MAX_MIN_DEPTH, Integer.MIN_VALUE, Integer.MAX_VALUE, true);
         Move bestMove = result.move;
         if (bestMove != null) {
             makeMove(bestMove);
