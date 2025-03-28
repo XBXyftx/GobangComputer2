@@ -21,7 +21,6 @@ public class GameWindow extends JFrame {
         setLocationRelativeTo(null); // 居中显示窗口
 
         GameController gameController = new GameController();
-
         chessBoardView = new ChessBoardView(gameController);
 
         // 使用 BorderLayout 布局管理器
