@@ -8,6 +8,16 @@ import model.Board;
  */
 public class GameEvaluator {
     private static final int[][] DIRECTIONS = {{0, 1}, {1, 1}, {1, 0}, {1, -1},{-1, 1}, {-1, 0}, {-1, -1}, {0, -1}};
+    public static final int COM_5 = 1000000;
+    public static final int COM_4 = 10000;
+    public static final int COM_3 = 1000;
+    public static final int COM_2 = 100;
+    public static final int COM_1 = 10;
+    public static final int HUMAN_5 = 10000000;
+    public static final int HUMAN_4 = 100000;
+    public static final int HUMAN_3 = 10000;
+    public static final int HUMAN_2 = 1000;
+    public static final int HUMAN_1 = 100;
 
     /**
      * 评估棋盘状态的价值，还没有反向检测
@@ -97,28 +107,28 @@ public class GameEvaluator {
         if (player == Player.COMPUTER_PLAYER) {
             // 根据连珠数量和空位数计算得分
             if (count == 5) {
-                return 1000000; // 连成五子
+                return COM_5; // 连成五子
             } else if (count == 4 && emptyCount >= 1) {
-                return 10000; // 四子一空
+                return COM_4; // 四子一空
             } else if (count == 3 && emptyCount >= 2) {
-                return 1000; // 三子两空
+                return COM_3; // 三子两空
             } else if (count == 2 && emptyCount >= 3) {
-                return 100; // 二子三空
+                return COM_2; // 二子三空
             } else if (count == 1 && emptyCount >= 4) {
-                return 10; // 一子四空
+                return COM_1; // 一子四空
             }
         }else if (player == Player.HUMAN_PLAYER) {
             // 根据连珠数量和空位数计算得分
             if (count == 5) {
-                return 10000000; // 连成五子
+                return HUMAN_5; // 连成五子
             } else if (count == 4 && emptyCount >= 1) {
-                return 100000; // 四子一空
+                return HUMAN_4; // 四子一空
             } else if (count == 3 && emptyCount >= 2) {
-                return 10000; // 三子两空
+                return HUMAN_3; // 三子两空
             } else if (count == 2 && emptyCount >= 3) {
-                return 1000; // 二子三空
+                return HUMAN_2; // 二子三空
             } else if (count == 1 && emptyCount >= 4) {
-                return 100; // 一子四空
+                return HUMAN_1; // 一子四空
             }
         }
         return 0;
