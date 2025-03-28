@@ -29,17 +29,6 @@ public class GameWindow extends JFrame {
         add(chessBoardView, BorderLayout.CENTER);
     }
 
-    /**
-     * 主方法，程序入口
-     *
-     * @param args 命令行参数
-     */
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            GameWindow window = new GameWindow();
-            window.setVisible(true);
-        });
-    }
 }
 
 
