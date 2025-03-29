@@ -87,15 +87,6 @@ public class GameController {
     }
 
     /**
-     * 重置游戏
-     */
-    public void resetGame() {
-        board.initializeBoard();
-        currentPlayer = Player.HUMAN_PLAYER;
-        gameOver = false;
-    }
-
-    /**
      * 计算机下棋逻辑，使用极大极小算法和Alpha-Beta剪枝
      */
     public void computerMove() {
