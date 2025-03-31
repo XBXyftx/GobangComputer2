@@ -15,6 +15,8 @@ public class Board {
 
     private static Board instance;
 
+    private Move lastMove;
+
     private Board() {
         this.board = new Player[SIZE][SIZE];
         initializeBoard();
@@ -78,6 +80,7 @@ public class Board {
         if (row >= 0 && row < SIZE && col >= 0 && col < SIZE) {
             if (board[row][col] == null) {
                 board[row][col] = piece;
+                setLastMove(new Move(row, col));
             } else {
                 throw new IllegalArgumentException("该位置已经被占");
             }
@@ -197,6 +200,14 @@ public class Board {
             }
             System.out.println();
         }
+    }
+
+    public Move getLastMove() {
+        return lastMove;
+    }
+
+    public void setLastMove(Move lastMove) {
+        this.lastMove = lastMove;
     }
 }
 

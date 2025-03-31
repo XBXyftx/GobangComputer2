@@ -30,7 +30,7 @@ public class AlphaBetaPruning {
      */
     public MinimaxResult minimaxWithAlphaBeta(Board board, int depth, int alpha, int beta, boolean maximizing) {
         // 找到最后一步的位置
-        Move lastMove = findLastMove(board);
+        Move lastMove = board.getLastMove();
         if (lastMove == null) {
             return new MinimaxResult(null, evaluator.evaluate(board));
         }
@@ -85,23 +85,6 @@ public class AlphaBetaPruning {
             }
             return new MinimaxResult(bestMove, minEval);
         }
-    }
-
-    /**
-     * 查找最后一步的位置
-     *
-     * @param board 当前棋盘状态
-     * @return 最后一步的位置，如果没有找到则返回 null
-     */
-    private Move findLastMove(Board board) {
-        for (int row = 0; row < board.getSize(); row++) {
-            for (int col = 0; col < board.getSize(); col++) {
-                if (board.getPiece(row, col) != null) {
-                    return new Move(row, col);
-                }
-            }
-        }
-        return null;
     }
 
     /**
